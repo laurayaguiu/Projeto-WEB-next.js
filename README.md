@@ -54,8 +54,6 @@ Esse arquivo cria a “casca” do site — o HTML global — e permite que outr
 
 Este arquivo define o conteúdo **da página inicial do site** (rota `/`).
 
-> ⚠️ O conteúdo exato depende do código do arquivo, mas baseado no padrão `create-next-app`, ele costuma ser semelhante ao exemplo abaixo.
-
 ### Estrutura típica:
 ```js
 import styles from "./page.module.css";
