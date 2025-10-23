@@ -1,18 +1,20 @@
 import Image from "next/image";
 import './home.css';
 
+
 export default function Home() {
   return (
     <>
           <section id="home" className="hero">
-            <img src="fundo.png" alt="Fundo da Velours" class="hero-bg" />
+            <img src="fundo.png" alt="Fundo da Velours" className="hero-bg" />
             <h2>VELOURS</h2>
             <p>Pâtisserie Artesanal</p>
-            <a href="#menu" className="btn">Ver Cardápio</a>
+            <a href="#" className="btn">Cadastre-se!</a>
           </section>
 
           <section id="sobre" className="sobre-nos">
             <h2>Sobre Nós</h2>
+            <br></br>
             <p>
                 Começamos com poucos produtos e muita paixão. Hoje, oferecemos doces e salgados artesanais,
                 sempre com o mesmo cuidado e sabor.
@@ -43,6 +45,8 @@ export default function Home() {
                 </a>
 
             </article>
+            <br></br>
+            <p>Explore nossa seleção cuidadosamente curada de doces artesanais, <br></br> salgados irresistíveis e bolos que são verdadeiras obras de arte.</p>
           </section>
 
           <section id="contato" className="contato">

@@ -36,6 +36,9 @@
   color: #e91e63;
 }
 
+h2 {
+  font-size: 3.5rem;
+}
 
 .hero {
   position: relative;
@@ -69,6 +72,8 @@
 
 .sobre-nos {
     background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+    text-align: center;
+    padding: 50px;
 }
 
 
@@ -80,6 +85,8 @@
 
 .section-menu {
     background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    text-align: center;
+    padding: 50px;
 }
 .menu-grid {
   display: grid;
@@ -112,6 +119,7 @@
 
 .contato {
     background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+    padding: 50px;
 }
 
 .contato-container {
