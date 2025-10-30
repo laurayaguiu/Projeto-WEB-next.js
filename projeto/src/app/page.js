@@ -1,19 +1,19 @@
 import Image from "next/image";
-import './home.module.css';
-import Nav from './components/Nav.js';
+import styles from './home.css'; 
+
 
 export default function Home() {
   return (
     <>
           <section id="home" className="hero">
             <img src="fundo.png" alt="Fundo da Velours" className="hero-bg" />
-            <h2>VELOURS</h2>
+            <h2 className="h2">VELOURS</h2>
             <p>Pâtisserie Artesanal</p>
             <a href="#" className="btn">Cadastre-se!</a>
           </section>
 
           <section id="sobre" className="sobre-nos">
-            <h2>Sobre Nós</h2>
+            <h2 className="h2">Sobre Nós</h2>
             <br></br>
             <p>
                 Começamos com poucos produtos e muita paixão. Hoje, oferecemos doces e salgados artesanais,
@@ -23,7 +23,7 @@ export default function Home() {
 
           
           <section id="menu" className="section-menu">
-            <h2>Nosso Cardápio</h2>
+            <h2 className="h2">Nosso Cardápio</h2>
             <article className="menu-grid">
 
                 <a href="#" className="card">
@@ -56,7 +56,7 @@ export default function Home() {
                 </figure>
 
                 <section className="contato-texto">
-                  <h2>Contato</h2>
+                  <h2 className="h2">Contato</h2>
                   <p>📞 (11) 99050-0361</p>
                   <p>📧 contato@velours.com</p>
                   <p>
