@@ -5,17 +5,17 @@ import styles from "./globals.css";
     const OpcaoCardapio = {
         doces: {
             nome: 'Doces',
-            descricao: 'Cidade famosa no Brasil, tem muchas praias bonitas.',
+            descricao: 'Macarons, tortas e chocolates finos.',
             caminhoImagem: '/limao.jpg'
         },
         salgados: {
             nome: 'Salgados',
-            descricao: 'Maior cidade do Brasil.',
+            descricao: 'Mini quiches e croissants deliciosos.',
             caminhoImagem: '/salgado.png'
         },
         bolo: {
             nome: 'Bolos',
-            descricao: 'Shakira vem da Colombia.',
+            descricao: 'Clássicos e personalizados para eventos.',
             caminhoImagem: '/bolos.jpg'
         },
     };
