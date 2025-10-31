@@ -36,9 +36,6 @@
   color: #e91e63;
 }
 
-h2 {
-  font-size: 3.5rem;
-}
 
 .hero {
   position: relative;
@@ -172,7 +169,7 @@ h2 {
 
 
 
-footer {
+.footer {
   text-align: center;
   padding: 2rem;
   background: linear-gradient(135deg, #fffbeb, #fef3c7);

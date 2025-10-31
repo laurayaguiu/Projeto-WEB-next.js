@@ -1,5 +1,6 @@
 import Image from "next/image";
-import styles from './home.module.css'; 
+import styles from './home.css'; 
+import Link from "next/link";
 
 
 export default function Home() {
@@ -26,23 +27,23 @@ export default function Home() {
             <h2 className="h2">Nosso Cardápio</h2>
             <article className="menu-grid">
 
-                <a href="#" className="card">
+                <Link href="/cardapio/doces" className="card">
                   <img src="limao.jpg" alt="Doces artesanais" />
-                  <h3>Doces</h3>
+                  <h3>Pequenas Delícias</h3>
                   <p>Macarons, tortas e chocolates finos.</p>
-                </a>
+                </Link>
 
-                <a href="#" className="card">
-                  <img src="salgado.png" alt="Salgados deliciosos" />
-                  <h3>Salgados</h3>
+                <Link href="/cardapio/salgados" className="card">
+                  <img src="salgado.jpg" alt="Salgados deliciosos" />
+                  <h3>Tentação Salgada</h3>
                   <p>Mini quiches e croissants deliciosos.</p>
-                </a>
+                </Link>
 
-                <a href="#" className="card">
-                  <img src="bolos.jpg" alt="Bolos personalizados" />
-                  <h3>Bolos</h3>
+                <Link href="/cardapio/bolo" className="card">
+                  <img src="bolo3.jpg" alt="Bolos personalizados" />
+                  <h3>Arte em Bolos</h3>
                   <p>Clássicos e personalizados para eventos.</p>
-                </a>
+                </Link>
 
             </article>
             <br></br>
