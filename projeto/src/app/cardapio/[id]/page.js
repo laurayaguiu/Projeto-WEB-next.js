@@ -8,29 +8,35 @@ export default async function PaginaCardapio({ params }) {
     doces: {
       nome: "Doces",
       descricao: "Macarons, tortas e chocolates finos.",
+      titulo: "Pequenas delícias",
       imagens: [
         { src: "/limao.jpg", texto: "Torta de Limão, azeda no ponto ideal!" },
         { src: "/doce2.jpg", texto: "Mouse com calda de morango" },
         { src: "/doce3.jpg", texto: " Banoffee" },
       ],
+      caminhoImagem: "/limao.jpg",
     },
     salgados: {
       nome: "Salgados",
       descricao: "Mini quiches e croissants deliciosos.",
+      titulo: "Tentação Salgada",
       imagens: [
         { src: "/salgado.png", texto: "Torta de frango" },
         { src: "/salgado2.jpg", texto: "Esfiha" },
         { src: "/salgado3.jpg", texto: "Pão de fermentação natural" },
       ],
+      caminhoImagem: "/salgado.png",
     },
     bolo: {
       nome: "Bolos",
       descricao: "Clássicos e personalizados para eventos.",
+      titulo: "Arte em Bolos",
       imagens: [
         { src: "/bolo1.jpg", texto: "Bolo estilo de vó, decoração de chantilly" },
         { src: "/bolo2.jpg", texto: "Bolo com decorações mais formais e elegantes" },
         { src: "/bolo3.jpg", texto: "Bolo de chocolate trufado, ótimo para tardes chuvosas" },
       ],
+      caminhoImagem: "/bolo3.jpg",
     },
   };
 

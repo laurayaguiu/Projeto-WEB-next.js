@@ -1,6 +1,10 @@
 import Image from "next/image";
 import styles from './home.css'; 
 import Link from "next/link";
+import NossoCardapio from "./components/nosso-cardapio/NossoCardapio";
+import OpcaoCardapio from "./cardapio/[id]/page";
+
+
 
 
 export default function Home() {
@@ -23,32 +27,8 @@ export default function Home() {
           </section>
 
           
-          <section id="menu" className="section-menu">
-            <h2 className="h2">Nosso Cardápio</h2>
-            <article className="menu-grid">
-
-                <Link href="/cardapio/doces" className="card">
-                  <img src="limao.jpg" alt="Doces artesanais" />
-                  <h3>Pequenas Delícias</h3>
-                  <p>Macarons, tortas e chocolates finos.</p>
-                </Link>
-
-                <Link href="/cardapio/salgados" className="card">
-                  <img src="salgado.jpg" alt="Salgados deliciosos" />
-                  <h3>Tentação Salgada</h3>
-                  <p>Mini quiches e croissants deliciosos.</p>
-                </Link>
-
-                <Link href="/cardapio/bolo" className="card">
-                  <img src="bolo3.jpg" alt="Bolos personalizados" />
-                  <h3>Arte em Bolos</h3>
-                  <p>Clássicos e personalizados para eventos.</p>
-                </Link>
-
-            </article>
-            <br></br>
-            <p>Explore nossa seleção cuidadosamente curada de doces artesanais, <br></br> salgados irresistíveis e bolos que são verdadeiras obras de arte.</p>
-          </section>
+            {/* Componente NossoCardapio */}
+            <NossoCardapio />
 
           <section id="contato" className="contato">
             <article className="contato-container">
