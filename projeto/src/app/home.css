@@ -121,18 +121,43 @@
 
 .contato-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  
+  width: 100%;
+  min-height: 60vh;       /* altura mínima do container */
+  flex-wrap: wrap;        /* permite empilhar em telas pequenas */
+}
+
+.contato-imagem {
+  width: 50%;             /* metade do container */
+  height: 100%;
+  overflow: hidden;       /* evita que a imagem ultrapasse */
 }
 
 .contato-imagem img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;            /* ocupa toda a div de 50% */
+  height: 100%;
+  object-fit: cover;      /* mantém proporção da imagem */
 }
+
+.contato-texto {
+  width: 50%;             /* a outra metade do container */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 768px) {
+  .contato-imagem,
+  .contato-texto {
+    width: 100%;          /* empilha verticalmente */
+  }
+
+  .contato-texto {
+    padding: 1rem;
+  }
+}
+
 
 .contato-texto {
   max-width: 400px;
