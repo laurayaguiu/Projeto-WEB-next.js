@@ -21,11 +21,11 @@ export default async function PaginaCardapio({ params }) {
       descricao: "Mini quiches e croissants deliciosos.",
       titulo: "Tentação Salgada",
       imagens: [
-        { src: "/salgado.png", texto: "Torta de frango" },
+        { src: "/salgado.jpg", texto: "Torta de frango" },
         { src: "/salgado2.jpg", texto: "Esfiha" },
         { src: "/salgado3.jpg", texto: "Pão de fermentação natural" },
       ],
-      caminhoImagem: "/salgado.png",
+      caminhoImagem: "/salgado.jpg",
     },
     bolo: {
       nome: "Bolos",

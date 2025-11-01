@@ -46,7 +46,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth; /* faz o scroll suave */
+
 }
 
 .hero-bg {

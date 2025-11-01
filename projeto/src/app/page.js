@@ -1,6 +1,7 @@
+
 import Image from "next/image";
 import styles from './home.css'; 
-import Link from "next/link";
+
 import NossoCardapio from "./components/nosso-cardapio/NossoCardapio";
 import OpcaoCardapio from "./cardapio/[id]/page";
 
@@ -8,6 +9,7 @@ import OpcaoCardapio from "./cardapio/[id]/page";
 
 
 export default function Home() {
+
   return (
     <>
           <section id="home" className="hero">
@@ -27,9 +29,9 @@ export default function Home() {
           </section>
 
           
-            {/* Componente NossoCardapio */}
+          <section id="menu"> {/* Componente NossoCardapio */}
             <NossoCardapio />
-
+          </section>
           <section id="contato" className="contato">
             <article className="contato-container">
                 <figure className="contato-imagem">
