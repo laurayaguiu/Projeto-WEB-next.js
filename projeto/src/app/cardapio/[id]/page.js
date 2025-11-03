@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../cardapio.module.css";
 
+
 export default async function PaginaCardapio({ params }) {
   const { id } = await params;
 

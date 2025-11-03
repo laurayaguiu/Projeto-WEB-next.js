@@ -1,5 +1,6 @@
 // src/app/layout.js
 import "./globals.css";
+import "./components/nav/nav.css";
 import Nav from "./components/nav/Nav";
 import Footer from "./components/Footer";
 
@@ -10,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" className="light"> 
       <body>
         <Nav />
         <main>{children}</main>

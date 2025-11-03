@@ -5,6 +5,16 @@ import { useRouter, usePathname } from "next/navigation";
 import './nav.css';
 
 export default function Nav() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Aplica a classe 'dark' no body
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode]);
   const router = useRouter();
   const pathname = usePathname();
   const [isClient, setIsClient] = useState(false);
@@ -44,7 +54,12 @@ export default function Nav() {
           <li><a href="#menu" onClick={(e) => handleAnchorClick(e, "menu")}>Menu</a></li>
           <li><a href="#contato" onClick={(e) => handleAnchorClick(e, "contato")}>Contato</a></li>
         </ul>
-        <button id="dark-toggle">🌙</button>
+         <button
+        onClick={() => setDarkMode(!darkMode)}
+        className="dark-toggle"
+      >
+        {darkMode ? "☀️" : "🌙"}
+      </button>
       </header>
     </nav>
   );

@@ -1,5 +1,4 @@
    
-
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,7 +13,7 @@ const NossoCardapio = ({ opcoes = OpcaoCardapio }) => {
         {Object.entries(opcoes).map(([key, item]) => (
           <Link key={key} href={`/cardapio/${key}`} className={styles.card}>
             <Image
-              src={item.caminhoImagem} // ex: "/limao.jpg" deve estar em public/
+              src={item.caminhoImagem} 
               alt={item.nome}
               width={150}
               height={150}

@@ -1,3 +1,6 @@
+/* ================================
+   RESET GERAL
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -9,11 +12,263 @@ body {
   line-height: 1.5;
   background: #fff;
   color: #333;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s ease, color 0.3s ease;
   font-size: 1.2rem;
-
 }
 
 h2 {
   font-size: 3.5rem;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  color: #e91e63;
+  transform: scale(1.05);
+}
+
+/* ================================
+   HERO
+================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 1;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Dark mode: escurece levemente a imagem, sem esconder */
+body.dark .heroBg {
+  opacity: 1;
+  filter: brightness(0.4);
+}
+
+/* conteúdo do hero */
+.h2,
+.lead,
+.btn,
+.ctaHero {
+  position: relative;
+  z-index: 2;
+}
+
+.btn, .ctaHero {
+  background: #14b8a6;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.btn:hover, .ctaHero:hover {
+  background: #0d9488;
+  transform: translateY(-3px);
+}
+
+/* ================================
+   SOBRE NÓS
+================================ */
+.sobreNos {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sobreNos p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Dark mode - Sobre Nós */
+body.dark .sobreNos {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  color: #f5f5f5;
+}
+
+/* ================================
+   NOSSO CARDÁPIO
+================================ */
+#menu {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  text-align: center;
+  padding: 50px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Dark mode - Cardápio */
+body.dark #menu {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  color: #f5f5f5;
+}
+
+body.dark .card {
+  background: #2b2b2b;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+/* ================================
+   CONTATO
+================================ */
+.contato {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  padding: 4rem 2rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.contatoContainer {
+  display: flex;
+  width: 100%;
+  min-height: 60vh;
+  flex-wrap: wrap;
+}
+
+.contatoImagem {
+  flex: 1 1 50%;
+  min-width: 300px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.contatoImagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contatoTexto {
+  flex: 1 1 50%;
+  min-width: 300px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contatoTexto h2 {
+  color: #e91e63;
+  margin-bottom: 1rem;
+}
+
+.contatoTexto p {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.contatoTexto a {
+  color: #e91e63;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.contatoTexto a:hover {
+  color: #c2185b;
+}
+
+/* Dark mode - Contato */
+body.dark .contato {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  color: #f5f5f5;
+}
+
+body.dark .contatoTexto h2 {
+  color: #e91e63;
+}
+
+body.dark .contatoTexto p {
+  color: #f5f5f5;
+}
+
+/* ================================
+   BOTÃO DARK MODE
+================================ */
+.darkToggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.darkToggle:hover {
+  transform: scale(1.2);
+}
+
+/* ================================
+   RESPONSIVIDADE
+================================ */
+@media (max-width: 768px) {
+  .contatoContainer {
+    flex-direction: column;
+  }
+
+  .contatoImagem,
+  .contatoTexto {
+    width: 100%;
+    max-width: none;
+  }
+
+  .h2 {
+    font-size: 2rem;
+  }
+
+  .btn, .ctaHero {
+    padding: 0.6rem 1.4rem;
+  }
 }

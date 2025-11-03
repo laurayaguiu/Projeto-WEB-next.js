@@ -223,3 +223,17 @@
   align-items:center;
   justify-content:center;
 }
+:global(body.dark) .sobreNos,
+:global(body.dark) .sectionMenu,
+:global(body.dark) .contato {
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+
+:global(body.dark) .contatoTexto a {
+  color: #e91e63;
+}
+
+:global(body.dark) .contatoTexto a:hover {
+  color: #ff6fa5;
+}

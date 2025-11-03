@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./home.module.css";
 
+
 import NossoCardapio from "./components/nosso-cardapio/NossoCardapio";
 
 export default function Home() {
@@ -32,7 +33,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section id="menu">
+      <section id="menu" className={styles.sectionMenu}>
         <NossoCardapio />
       </section>
 
