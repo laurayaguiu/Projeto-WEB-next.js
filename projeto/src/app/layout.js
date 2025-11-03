@@ -1,21 +1,19 @@
+// src/app/layout.js
 import "./globals.css";
-import Link from 'next/link';
-import Nav from './components/nav/Nav';
-import Footer from './components/Footer';
+import Nav from "./components/nav/Nav";
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "VELOURS Pâtisserie",
-  description: "Site de ecommerce",
+  description: "Site de e-commerce artesanal",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
       <body>
-        <Nav /> 
-        <main>
-          {children}
-        </main>
+        <Nav />
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

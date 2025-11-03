@@ -1,0 +1,225 @@
+/* home.module.css - visual da home (copiado e adaptado exatamente do seu CSS) */
+
+/* HERO */
+.hero {
+  position: relative; /* obrigatório para fill funcionar */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heroBg {
+  z-index: -1;
+  opacity: 1.0;
+}
+
+.h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.h2Small {
+  font-size: 2rem;
+  color: #4a2e2e;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.btn, .ctaHero {
+  background: #14b8a6;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.btn:hover, .ctaHero:hover {
+  background: #0d9488;
+  transform: translateY(-3px);
+}
+
+/* SOBRE NÓS */
+.sobreNos {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #333;
+}
+
+.sobreNos p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* SECTION MENU */
+.sectionMenu {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  text-align: center;
+  padding: 50px;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* CONTATO */
+.contato {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  padding: 4rem 2rem;
+}
+
+.contatoContainer {
+  display: flex;
+  width: 100%;
+  min-height: 60vh;
+  flex-wrap: wrap; /* empilha em telas pequenas */
+}
+
+.contatoImagem {
+  flex: 1 1 50%;   /* ocupa metade do container */
+  min-width: 300px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.contatoImagem img {
+  width: 100%;       /* ocupa toda a largura do container */
+  height: 100%;      /* ocupa toda a altura do container */
+  object-fit: cover; /* cobre todo o container sem distorcer */
+  display: block;
+}
+
+.contatoTexto {
+  flex: 1 1 50%;    /* ocupa a outra metade */
+  min-width: 300px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contatoTexto h2 {
+  color: #e91e63;
+  margin-bottom: 1rem;
+}
+
+.contatoTexto p {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.contatoTexto a {
+  color: #e91e63;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.contatoTexto a:hover {
+  color: #c2185b;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .contatoContainer {
+    flex-direction: column;
+  }
+
+  .contatoImagem,
+  .contatoTexto {
+    width: 100%;
+    max-width: none;
+  }
+
+  .h2 {
+    font-size: 2rem;
+  }
+
+  .btn, .ctaHero {
+    padding: 0.6rem 1.4rem;
+  }
+}
+
+/* utilitários para main/ctas/footer (mantidos simples) */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.list {
+  margin: 0;
+  padding-left: 0;
+}
+
+.code {
+  background: var(--gray-alpha-100);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.ctas {
+  display:flex;
+  gap:16px;
+}
+
+.btnBase {
+  border-radius: 128px;
+  height: 48px;
+  padding: 0 20px;
+  text-decoration: none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.primary { background: var(--foreground); color: var(--background); }
+.secondary { border: 1px solid var(--gray-alpha-200); min-width:158px; }
+
+.footer {
+  display:flex;
+  gap:24px;
+  align-items:center;
+  justify-content:center;
+}
