@@ -1,6 +1,7 @@
 // src/app/page.js
 import Image from "next/image";
 import styles from "./home.module.css";
+import Link from "next/link";
 
 
 import NossoCardapio from "./components/nosso-cardapio/NossoCardapio";
@@ -20,9 +21,9 @@ export default function Home() {
         <h2 className={styles.h2}>VELOURS</h2>
 
         <p>Pâtisserie Artesanal</p>
-        <a href="#" className={styles.btn}>
+        <Link href="/formulario" className={styles.btn}>
           Cadastre-se!
-        </a>
+        </Link>
       </section>
 
       <section id="sobre" className={styles.sobreNos}>

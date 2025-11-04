@@ -2,7 +2,7 @@
 import "./globals.css";
 import "./components/nav/nav.css";
 import Nav from "./components/nav/Nav";
-import Footer from "./components/Footer";
+import Footer from "./components/footer/Footer";
 
 export const metadata = {
   title: "VELOURS Pâtisserie",

@@ -47,7 +47,7 @@ export default function Nav() {
   return (
     <nav>
       <header className="navbar">
-        <img class="logo" src="/logo.png" alt="Logo" />
+        <img className="logo" src="/logo.png" alt="Logo" />
         <ul className="nav-links">
           <li><a href="#home" onClick={(e) => handleAnchorClick(e, "home")}>Home</a></li>
           <li><a href="#sobre" onClick={(e) => handleAnchorClick(e, "sobre")}>Sobre</a></li>

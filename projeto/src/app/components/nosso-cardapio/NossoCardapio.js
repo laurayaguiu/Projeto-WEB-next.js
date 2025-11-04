@@ -25,6 +25,7 @@ const NossoCardapio = ({ opcoes = OpcaoCardapio }) => {
         ))}
       </article>
       <p className={styles.descricao}>
+        <br />
         Explore nossa seleção cuidadosamente curada de doces artesanais,
         <br />
         salgados irresistíveis e bolos que são verdadeiras obras de arte.

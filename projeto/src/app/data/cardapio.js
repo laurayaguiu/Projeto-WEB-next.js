@@ -14,9 +14,9 @@ const OpcaoCardapio = {
     nome: "Salgados",
     titulo: "Tentação Salgada",
     descricao: "Mini quiches e croissants deliciosos.",
-    caminhoImagem: "/salgado.png",
+    caminhoImagem: "/salgado.jpg",
     imagens: [
-      { src: "/salgado.png", texto: "Torta de frango" },
+      { src: "/salgado.jpg", texto: "Torta de frango" },
       { src: "/salgado2.jpg", texto: "Esfiha" },
       { src: "/salgado3.jpg", texto: "Pão de fermentação natural" },
     ],

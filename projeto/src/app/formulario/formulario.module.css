@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffeaf2;
+}
+
+.formulario-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem;
+}
+
+.form-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-card h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.form-card label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #444;
+}
+
+.form-card input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.form-card input:focus {
+  border: 1px solid #ff6f91;
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btns button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.enviar {
+  background-color: #ff6f91;
+  color: white;
+}
+.enviar:hover {
+  background-color: #ff4e75;
+}
+
+.voltar {
+  background-color: #ddd;
+  color: #333;
+}
+.voltar:hover {
+  background-color: #bbb;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-card h2 {
+    font-size: 22px;
+  }
+
+  .btns {
+    flex-direction: column;
+  }
+}
+
+.mensagemSucesso {
+  margin-top: 15px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animação suave ao aparecer */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
