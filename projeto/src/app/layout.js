@@ -1,5 +1,6 @@
 // src/app/layout.js
 import "./globals.css";
+import "./dark-theme.css";
 import "./components/nav/nav.css";
 import Nav from "./components/nav/Nav";
 import Footer from "./components/footer/Footer";

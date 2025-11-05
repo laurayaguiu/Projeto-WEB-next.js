@@ -1,0 +1,85 @@
+/* ============================================
+   🌙 TEMA ESCURO GLOBAL - dark-theme.css
+   ============================================ */
+
+/* ---------- BODY ---------- */
+body.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ---------- LINKS ---------- */
+body.dark a {
+  color: #f5f5f5;
+}
+
+body.dark a:hover {
+  color: #e91e63;
+}
+
+/* ---------- HERO ---------- */
+body.dark .heroBg {
+  filter: brightness(0.4);
+}
+
+/* ---------- SEÇÃO SOBRE NÓS ---------- */
+body.dark .sobreNos {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  color: #f5f5f5;
+}
+
+body.dark .sobreNos p {
+  color: #ccc;
+}
+
+/* ---------- SEÇÃO CARDÁPIO ---------- */
+body.dark #menu,
+body.dark .menu {
+  background: linear-gradient(135deg, #1e1e1e, #121212);
+  color: #f5f5f5;
+}
+
+body.dark .card {
+  background: #2b2b2b;
+  color: #f5f5f5;
+  box-shadow: 0 3px 8px rgba(255, 255, 255, 0.08);
+}
+
+body.dark .card:hover {
+  background: #333;
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- SEÇÃO CONTATO ---------- */
+body.dark .contato {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+  color: #f5f5f5;
+}
+
+body.dark .contatoTexto h2 {
+  color: #e91e63;
+}
+
+body.dark .contatoTexto p {
+  color: #ddd;
+}
+
+/* ---------- FOOTER ---------- */
+body.dark footer {
+  background: #1a1a1a;
+  color: #ccc;
+}
+
+/* ---------- BOTÃO DE TOGGLE ---------- */
+body.dark .darkToggle {
+  color: #f5f5f5;
+}
+
+/* ---------- TRANSIÇÕES ---------- */
+body.dark * {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+body.dark .logo {
+  filter: invert(1) brightness(2);
+}

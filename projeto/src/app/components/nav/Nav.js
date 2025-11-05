@@ -6,37 +6,42 @@ import './nav.css';
 
 export default function Nav() {
   const [darkMode, setDarkMode] = useState(false);
-
-  // Aplica a classe 'dark' no body
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode]);
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const [isClient, setIsClient] = useState(false);
 
+  // Lê o tema salvo no localStorage ao montar
   useEffect(() => {
-    // Marca que o componente já foi montado no cliente
     setIsClient(true);
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+      document.body.classList.add("dark");
+    }
   }, []);
+
+  // Aplica a classe e salva no localStorage
+  useEffect(() => {
+    if (!isClient) return;
+
+    if (darkMode) {
+      document.body.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode, isClient]);
 
   const handleAnchorClick = (e, id) => {
     e.preventDefault();
-
-    // Se ainda não estiver montado no client, não faz nada
     if (!isClient) return;
 
-    // Se o usuário estiver fora da home, leva pra home e rola até o id
     if (pathname !== "/") {
       router.push(`/#${id}`);
       return;
     }
 
-    // Se estiver na home, rola até a seção correspondente
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -54,12 +59,14 @@ export default function Nav() {
           <li><a href="#menu" onClick={(e) => handleAnchorClick(e, "menu")}>Menu</a></li>
           <li><a href="#contato" onClick={(e) => handleAnchorClick(e, "contato")}>Contato</a></li>
         </ul>
-         <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="dark-toggle"
-      >
-        {darkMode ? "☀️" : "🌙"}
-      </button>
+
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="darkToggle"
+          title="Alternar modo escuro"
+        >
+          {darkMode ? "☀️" : "🌙"}
+        </button>
       </header>
     </nav>
   );

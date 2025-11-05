@@ -1,53 +1,66 @@
-/* nav.module.css - só a configuração do nav que você pediu */
+/* ===============================
+   NAVBAR
+================================ */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.9);
   padding: 1rem 2rem;
-  position: fixed;
-  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
   top: 0;
-  z-index: 50;
-  backdrop-filter: blur(4px);
-}
-
-.logo {
-  
-  color: #fff;
-  border-radius: 50%;
-  width: 3.2rem;
-  height: 3.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+  z-index: 100;
 }
 
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #333;
-  transition: 0.3s, color 0.3s;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
   color: #e91e63;
- padding-right: 0.5rem;
- padding-left: 0.5rem;
- font-size: 20px;
 }
 
-/* Dark Mode */
+/* LOGO */
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+/* ===============================
+   DARK MODE TOGGLE
+================================ */
+.darkToggle {
+  background: none;       /* remove o fundo */
+  border: none;           /* remove a borda */
+  font-size: 2.5rem;      /* aumenta o tamanho do símbolo */
+  cursor: pointer;        /* cursor pointer */
+  color: inherit;         /* herda a cor do texto atual */
+  padding: 0;             /* remove padding */
+  display: flex;          
+  align-items: center;    
+  justify-content: center; 
+  transition: transform 0.2s ease; /* efeito hover */
+}
+
+.darkToggle:hover {
+  transform: scale(1.2);  /* aumenta levemente ao passar o mouse */
+}
+
+/* ===============================
+   DARK MODE NO NAV
+================================ */
 body.dark .navbar {
-  background-color: rgba(20, 20, 20, 0.9);
+  background: #1e1e1e;
 }
 
 body.dark .nav-links a {
@@ -56,5 +69,4 @@ body.dark .nav-links a {
 
 body.dark .nav-links a:hover {
   color: #e91e63;
-  transform: scale(1.1);
 }
