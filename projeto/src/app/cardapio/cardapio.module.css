@@ -1,19 +1,19 @@
 .sectionMain {
   text-align: center;
   padding: 100px 20px;
-  background-color: #fffaf6;
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
   min-height: 100vh;
 }
 
 .sectionMain h2 {
   font-size: 2rem;
-  color: #7a4b2a;
+  color: #333;
   margin-bottom: 10px;
 }
 
 .descricao {
   font-size: 1.1rem;
-  color: #5c3b26;
+  color: #333;
   margin-bottom: 40px;
 }
 
@@ -42,43 +42,21 @@
 }
 
 .imagem {
-  width: 100%;
-  height: auto;
   border-bottom: 1px solid #eee;
-  object-fit: cover;
+  width: 100%;
+  height: 220px; /* 🔧 Define altura uniforme */
+  border-bottom: 1px solid #eee;
+  object-fit: cover; 
 }
 
 .legenda {
   font-size: 1rem;
   font-weight: 500;
-  color: #4a2e18;
+  color: #333;
   margin: 10px 0 15px;
 }
 
-/* 🌙 Dark mode */
-body.dark .sectionMain {
-  background: #1e1e1e;
-  color: #f5f5f5;
-}
-
-body.dark .sectionMain h2 {
-  color: #f5f5f5;
-}
-
-body.dark .descricao {
-  color: #ccc;
-}
-
-body.dark .item {
-  background: #2b2b2b;
-  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.08);
-}
-
-body.dark .item:hover {
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-  transform: translateY(-5px);
-}
-
-body.dark .legenda {
-  color: #ccc;
+.item:hover .legenda {
+  color: #e91e63;
+  transition: color 0.3s ease;
 }

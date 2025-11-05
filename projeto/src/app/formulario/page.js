@@ -52,7 +52,7 @@ export default function Formulario() {
 
         {enviado && (
           <p className={styles.mensagemSucesso}>
-            ✅ Formulário enviado com sucesso! Entraremos em contato em breve 💌
+            ✅ Formulário enviado com sucesso!
           </p>
         )}
       </form>

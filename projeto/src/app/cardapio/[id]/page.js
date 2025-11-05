@@ -11,7 +11,7 @@ export default async function PaginaCardapio({ params }) {
       descricao: "Macarons, tortas e chocolates finos.",
       titulo: "Pequenas delícias",
       imagens: [
-        { src: "/limao.jpg", texto: "Torta de Limão, azeda no ponto ideal!" },
+        { src: "/limao.jpg", texto: "Torta de Limão" },
         { src: "/doce2.jpg", texto: "Mouse com calda de morango" },
         { src: "/doce3.jpg", texto: " Banoffee" },
       ],
@@ -33,9 +33,9 @@ export default async function PaginaCardapio({ params }) {
       descricao: "Clássicos e personalizados para eventos.",
       titulo: "Arte em Bolos",
       imagens: [
-        { src: "/bolo1.jpg", texto: "Bolo estilo de vó, decoração de chantilly" },
+        { src: "/bolo1.jpg", texto: "Bolo chantilly" },
         { src: "/bolo2.jpg", texto: "Bolo com decorações mais formais e elegantes" },
-        { src: "/bolo3.jpg", texto: "Bolo de chocolate trufado, ótimo para tardes chuvosas" },
+        { src: "/bolo3.jpg", texto: "Bolo de chocolate trufado" },
       ],
       caminhoImagem: "/bolo3.jpg",
     },
