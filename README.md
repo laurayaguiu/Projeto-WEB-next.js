@@ -365,9 +365,7 @@ Serve como “base” para todos os estilos — tudo herda esse comportamento pa
 
 ---
 
-
-
-#⚙️ Arquivo: next.config.mjs
+##⚙️ Arquivo: `next.config.mjs`
 ````
 /** @type {import('next').NextConfig} */
 
@@ -386,10 +384,9 @@ A opção reactCompiler: true ativa o novo compilador React para otimizar o dese
 
 Pode ser usado para habilitar funções experimentais e controlar comportamento de build.
 
-
 ---
 
-#⚙️ Arquivo: eslint.config.mjs
+##⚙️ Arquivo: eslint.config.mjs
 ````
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
@@ -415,6 +412,876 @@ Este arquivo configura o ESLint, ferramenta que verifica erros e boas práticas 
 Usa as regras do next/core-web-vitals e ignora pastas padrão como .next, out, build.
 
 Garante que o código siga o padrão do Next.js e fique livre de problemas de lint.
+
+---
+
+##Arquivo: Footer.js
+
+````
+
+import styles from "./footer.module.css";
+export default function Footer() {
+  return (
+    <footer className={styles.footer}>
+            <p>&copy; 2025 VELOURS Pâtisserie</p>
+    </footer>
+  );
+}
+
+
+````
+
+Explicação:
+
+
+
+##Arquivo: `Footer.module.css`
+
+
+.footer {
+    text-align: center;
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    padding: 1rem;
+}
+
+
+Explicação:
+
+
+
+##Arquivo: `Nav.js`
+
+'use client';
+
+import { useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import './nav.css';
+
+export default function Nav() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Lê o tema salvo no localStorage ao montar
+  useEffect(() => {
+    setIsClient(true);
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+      document.body.classList.add("dark");
+    }
+  }, []);
+
+  // Aplica a classe e salva no localStorage
+  useEffect(() => {
+    if (!isClient) return;
+
+    if (darkMode) {
+      document.body.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode, isClient]);
+
+  const handleAnchorClick = (e, id) => {
+    e.preventDefault();
+    if (!isClient) return;
+
+    if (pathname !== "/") {
+      router.push(`/#${id}`);
+      return;
+    }
+
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      history.pushState(null, '', `#${id}`);
+    }
+  };
+
+  return (
+    <nav>
+      <header className="navbar">
+        <img className="logo" src="/logo.png" alt="Logo" />
+        <ul className="nav-links">
+          <li><a href="#home" onClick={(e) => handleAnchorClick(e, "home")}>Home</a></li>
+          <li><a href="#sobre" onClick={(e) => handleAnchorClick(e, "sobre")}>Sobre</a></li>
+          <li><a href="#menu" onClick={(e) => handleAnchorClick(e, "menu")}>Menu</a></li>
+          <li><a href="#contato" onClick={(e) => handleAnchorClick(e, "contato")}>Contato</a></li>
+        </ul>
+
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="darkToggle"
+          title="Alternar modo escuro"
+        >
+          {darkMode ? "☀️" : "🌙"}
+        </button>
+      </header>
+    </nav>
+  );
+}
+
+````
+
+Explicação:
+
+
+
+
+##Arquivo: `nav.css:`
+
+
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #e91e63;
+}
+
+/* LOGO */
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+/* ===============================
+   DARK MODE TOGGLE
+================================ */
+.darkToggle {
+  background: none;       /* remove o fundo */
+  border: none;           /* remove a borda */
+  font-size: 2.5rem;      /* aumenta o tamanho do símbolo */
+  cursor: pointer;        /* cursor pointer */
+  color: inherit;         /* herda a cor do texto atual */
+  padding: 0;             /* remove padding */
+  display: flex;          
+  align-items: center;    
+  justify-content: center; 
+  transition: transform 0.2s ease; /* efeito hover */
+}
+
+.darkToggle:hover {
+  transform: scale(1.2);  /* aumenta levemente ao passar o mouse */
+}
+
+/* ===============================
+   DARK MODE NO NAV
+================================ */
+body.dark .navbar {
+  background: #1e1e1e;
+}
+
+body.dark .nav-links a {
+  color: #f5f5f5;
+}
+
+body.dark .nav-links a:hover {
+  color: #e91e63;
+}
+
+````
+
+Explicação:
+
+
+
+
+##Arquivo: NossoCardapio.js
+
+````
+  
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "./nosso-cardapio.module.css";
+import OpcaoCardapio from "../../data/cardapio";
+
+const NossoCardapio = ({ opcoes = OpcaoCardapio }) => {
+  return (
+    <section className={styles.menu}>
+      <h2 className={styles.titleCardapio}>Nosso Cardápio</h2>
+      <article className={styles.menuGrid}>
+        {Object.entries(opcoes).map(([key, item]) => (
+          <Link key={key} href={`/cardapio/${key}`} className={styles.card}>
+            <Image
+              src={item.caminhoImagem} 
+              alt={item.nome}
+              width={150}
+              height={150}
+              className={styles.imagemCardapio}
+            />
+            <h3>{item.titulo}</h3>
+            <p>{item.descricao}</p>
+          </Link>
+        ))}
+      </article>
+      <p className={styles.descricao}>
+        <br />
+        Explore nossa seleção cuidadosamente curada de doces artesanais,
+        <br />
+        salgados irresistíveis e bolos que são verdadeiras obras de arte.
+      </p>
+    </section>
+  );
+};
+
+export default NossoCardapio;
+
+
+````
+
+Explicação:
+
+
+
+
+##Arquivo: nosso-cardapio.js:
+
+````
+
+.menu {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  text-align: center;
+  padding: 50px;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imagemCardapio {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.titleCardapio {
+  font-size: 3.5rem;
+}
+
+.descricao {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+.menu {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  text-align: center;
+  padding: 50px;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imagemCardapio {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.titleCardapio {
+  font-size: 3.5rem;
+}
+
+.descricao {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* 🌙 Dark Mode usando :global */
+:global(body.dark) .menu {
+  background: linear-gradient(135deg, #1e1e1e, #121212);
+  color: #f5f5f5;
+}
+
+:global(body.dark) .card {
+  background: #2b2b2b;
+  color: #f5f5f5;
+  box-shadow: 0 3px 8px rgba(255, 255, 255, 0.08);
+}
+
+:global(body.dark) .card:hover {
+  background: #333;
+  transform: translateY(-6px);
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
+}
+
+:global(body.dark) .descricao {
+  color: #ccc;
+}
+
+````
+
+Explicação:
+
+
+
+
+
+Arquivo: nosso-cardapio.module.css:
+
+````
+
+.menu {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  text-align: center;
+  padding: 50px;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imagemCardapio {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.titleCardapio {
+  font-size: 3.5rem;
+}
+
+.descricao {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+.menu {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  text-align: center;
+  padding: 50px;
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imagemCardapio {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.titleCardapio {
+  font-size: 3.5rem;
+}
+
+.descricao {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* 🌙 Dark Mode usando :global */
+:global(body.dark) .menu {
+  background: linear-gradient(135deg, #1e1e1e, #121212);
+  color: #f5f5f5;
+}
+
+:global(body.dark) .card {
+  background: #2b2b2b;
+  color: #f5f5f5;
+  box-shadow: 0 3px 8px rgba(255, 255, 255, 0.08);
+}
+
+:global(body.dark) .card:hover {
+  background: #333;
+  transform: translateY(-6px);
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
+}
+
+:global(body.dark) .descricao {
+  color: #ccc;
+}
+
+````
+
+Explicação:
+
+
+
+
+
+##Arquivo: page.js formulário :
+
+````
+import Image from "next/image";
+import styles from "../cardapio.module.css";
+
+
+export default async function PaginaCardapio({ params }) {
+  const { id } = await params;
+
+  const OpcaoCardapio = {
+    doces: {
+      nome: "Doces",
+      descricao: "Macarons, tortas e chocolates finos.",
+      titulo: "Pequenas delícias",
+      imagens: [
+        { src: "/limao.jpg", texto: "Torta de Limão" },
+        { src: "/doce2.jpg", texto: "Mouse com calda de morango" },
+        { src: "/doce3.jpg", texto: " Banoffee" },
+      ],
+      caminhoImagem: "/limao.jpg",
+    },
+    salgados: {
+      nome: "Salgados",
+      descricao: "Mini quiches e croissants deliciosos.",
+      titulo: "Tentação Salgada",
+      imagens: [
+        { src: "/salgado.jpg", texto: "Torta de frango" },
+        { src: "/salgado2.jpg", texto: "Esfiha" },
+        { src: "/salgado3.jpg", texto: "Pão de fermentação natural" },
+      ],
+      caminhoImagem: "/salgado.jpg",
+    },
+    bolo: {
+      nome: "Bolos",
+      descricao: "Clássicos e personalizados para eventos.",
+      titulo: "Arte em Bolos",
+      imagens: [
+        { src: "/bolo1.jpg", texto: "Bolo chantilly" },
+        { src: "/bolo2.jpg", texto: "Bolo com decorações mais formais e elegantes" },
+        { src: "/bolo3.jpg", texto: "Bolo de chocolate trufado" },
+      ],
+      caminhoImagem: "/bolo3.jpg",
+    },
+  };
+
+  const cardapio = OpcaoCardapio[id?.toLowerCase().trim()];
+
+  if (!cardapio) {
+    return <p>Opção de cardápio não encontrada.</p>;
+  }
+
+  return (
+    <section className={styles.sectionMain}>
+      <h2>{cardapio.nome}</h2>
+      <p className={styles.descricao}>{cardapio.descricao}</p>
+
+      <div className={styles.galeria}>
+        {cardapio.imagens.map((item, index) => (
+          <div key={index} className={styles.item}>
+            <Image
+              src={item.src}
+              alt={item.texto}
+              width={300}
+              height={200}
+              className={styles.imagem}
+            />
+            <p className={styles.legenda}>{item.texto}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+````
+Explicação:
+
+
+
+
+
+#Arquivo:Cardapio.module.css
+
+````
+.sectionMain {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  min-height: 100vh;
+}
+
+.sectionMain h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.descricao {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  align-items: start;
+  padding: 0 20px;
+}
+
+.item {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.imagem {
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  height: 220px; /* 🔧 Define altura uniforme */
+  border-bottom: 1px solid #eee;
+  object-fit: cover; 
+}
+
+.legenda {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin: 10px 0 15px;
+}
+
+.item:hover .legenda {
+  color: #e91e63;
+  transition: color 0.3s ease;
+}
+
+
+````
+
+Explicação:
+
+
+
+
+
+
+#Arquivo: formulario.module.css
+
+````
+
+body {
+  margin: 0;
+  background: #ffeaf2;
+}
+
+.formulario-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem;
+}
+
+.form-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-card h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.form-card label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #444;
+}
+
+.form-card input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.form-card input:focus {
+  border: 1px solid #ff6f91;
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btns button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.enviar {
+  background-color: #ff6f91;
+  color: white;
+}
+.enviar:hover {
+  background-color: #ff4e75;
+}
+
+.voltar {
+  background-color: #ddd;
+  color: #333;
+}
+.voltar:hover {
+  background-color: #bbb;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-card h2 {
+    font-size: 22px;
+  }
+
+  .btns {
+    flex-direction: column;
+  }
+}
+
+.mensagemSucesso {
+  margin-top: 15px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animação suave ao aparecer */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+````
+
+Explicação:
+
+
+
+
+
+##Arquivo: page.js formulário
+
+````
+
+"use client";
+import styles from "./formulario.module.css";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
+export default function Formulario() {
+  const router = useRouter();
+  const [enviado, setEnviado] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEnviado(true);
+    e.target.reset(); // limpa o formulário
+    setTimeout(() => setEnviado(false), 4000); // mensagem some depois de 4s
+  };
+
+  return (
+    <section className={styles["formulario-section"]}>
+      <form onSubmit={handleSubmit} className={styles["form-card"]}>
+        <h2>Formulário de Cadastro</h2>
+
+        <label htmlFor="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label htmlFor="telefone">Telefone:</label>
+        <input
+          type="tel"
+          id="telefone"
+          name="telefone"
+          placeholder="(99) 99999-9999"
+          required
+        />
+
+        <label htmlFor="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label htmlFor="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" placeholder="00000-000" required />
+
+        <div className={styles.btns}>
+          <button
+            type="button"
+            className={styles.voltar}
+            onClick={() => router.back()}
+          >
+            Voltar
+          </button>
+          <button type="submit" className={styles.enviar}>
+            Enviar
+          </button>
+        </div>
+
+        {enviado && (
+          <p className={styles.mensagemSucesso}>
+            ✅ Formulário enviado com sucesso!
+          </p>
+        )}
+      </form>
+    </section>
+  );
+}
+
+````
+
+Explicação:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
