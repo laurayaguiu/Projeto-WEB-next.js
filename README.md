@@ -367,7 +367,7 @@ Serve como “base” para todos os estilos — tudo herda esse comportamento pa
 
 
 
-##⚙️ Arquivo: next.config.mjs
+#⚙️ Arquivo: next.config.mjs
 ````
 /** @type {import('next').NextConfig} */
 
@@ -389,7 +389,7 @@ Pode ser usado para habilitar funções experimentais e controlar comportamento 
 
 ---
 
-##⚙️ Arquivo: eslint.config.mjs
+#⚙️ Arquivo: eslint.config.mjs
 ````
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
