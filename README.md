@@ -428,11 +428,8 @@ export default function Footer() {
 
 Explicação:
 
-
-
 ##Arquivo: `Footer.module.css`
-
-
+````
 .footer {
     text-align: center;
     background: linear-gradient(135deg, #fffbeb, #fef3c7);
@@ -445,7 +442,7 @@ Explicação:
 
 
 ##Arquivo: `Nav.js`
-
+````
 'use client';
 
 import { useEffect, useState } from "react";
@@ -519,17 +516,14 @@ export default function Nav() {
     </nav>
   );
 }
-
 ````
-
 Explicação:
 
 
 
 
-##Arquivo: `nav.css:`
-
-
+##Arquivo: `nav.css:
+````
 /* ===============================
    NAVBAR
 ================================ */
@@ -602,18 +596,11 @@ body.dark .nav-links a {
 body.dark .nav-links a:hover {
   color: #e91e63;
 }
-
 ````
-
 Explicação:
 
-
-
-
 ##Arquivo: NossoCardapio.js
-
 ````
-  
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -650,19 +637,12 @@ const NossoCardapio = ({ opcoes = OpcaoCardapio }) => {
 };
 
 export default NossoCardapio;
-
-
 ````
-
 Explicação:
-
-
 
 
 ##Arquivo: nosso-cardapio.js:
-
 ````
-
 .menu {
   background: linear-gradient(135deg, #fffbeb, #fef3c7);
   text-align: center;
@@ -771,19 +751,12 @@ Explicação:
 :global(body.dark) .descricao {
   color: #ccc;
 }
-
 ````
-
 Explicação:
 
 
-
-
-
-Arquivo: nosso-cardapio.module.css:
-
+##Arquivo: nosso-cardapio.module.css:
 ````
-
 .menu {
   background: linear-gradient(135deg, #fffbeb, #fef3c7);
   text-align: center;
@@ -892,17 +865,12 @@ Arquivo: nosso-cardapio.module.css:
 :global(body.dark) .descricao {
   color: #ccc;
 }
-
 ````
 
 Explicação:
-
-
-
 
 
 ##Arquivo: page.js formulário :
-
 ````
 import Image from "next/image";
 import styles from "../cardapio.module.css";
@@ -975,16 +943,11 @@ export default async function PaginaCardapio({ params }) {
     </section>
   );
 }
-
 ````
 Explicação:
 
 
-
-
-
 #Arquivo:Cardapio.module.css
-
 ````
 .sectionMain {
   text-align: center;
@@ -1048,21 +1011,14 @@ Explicação:
   color: #e91e63;
   transition: color 0.3s ease;
 }
-
-
 ````
 
 Explicação:
 
 
 
-
-
-
 #Arquivo: formulario.module.css
-
 ````
-
 body {
   margin: 0;
   background: #ffeaf2;
@@ -1185,7 +1141,6 @@ body {
     transform: translateY(0);
   }
 }
-
 ````
 
 Explicação:
@@ -1195,9 +1150,7 @@ Explicação:
 
 
 ##Arquivo: page.js formulário
-
 ````
-
 "use client";
 import styles from "./formulario.module.css";
 import { useRouter } from "next/navigation";
@@ -1259,7 +1212,6 @@ export default function Formulario() {
     </section>
   );
 }
-
 ````
 
 Explicação:
