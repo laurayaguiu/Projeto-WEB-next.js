@@ -417,6 +417,19 @@ Usa as regras do next/core-web-vitals e ignora pastas padrão como .next, out, b
 Garante que o código siga o padrão do Next.js e fique livre de problemas de lint.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 📘 Conclusão
 
 O projeto usa a estrutura padrão do **Next.js** com:
