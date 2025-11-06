@@ -365,6 +365,54 @@ Serve como “base” para todos os estilos — tudo herda esse comportamento pa
 
 ---
 
+
+
+
+
+##⚙️ Arquivo: next.config.mjs
+````/** @type {import('next').NextConfig} */
+const nextConfig = {
+  /* config options here */
+  reactCompiler: true,
+};
+
+export default nextConfig;
+
+Explicação:
+
+Este arquivo define configurações globais do Next.js.
+
+A opção reactCompiler: true ativa o novo compilador React para otimizar o desempenho e tempo de build.
+
+Pode ser usado para habilitar funções experimentais e controlar comportamento de build.
+````
+##⚙️ Arquivo: eslint.config.mjs
+````import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+````
+Explicação:
+
+Este arquivo configura o ESLint, ferramenta que verifica erros e boas práticas no código.
+
+Usa as regras do next/core-web-vitals e ignora pastas padrão como .next, out, build.
+
+Garante que o código siga o padrão do Next.js e fique livre de problemas de lint.
+
+
 # 📘 Conclusão
 
 O projeto usa a estrutura padrão do **Next.js** com:
