@@ -413,12 +413,9 @@ Usa as regras do next/core-web-vitals e ignora pastas padrão como .next, out, b
 
 Garante que o código siga o padrão do Next.js e fique livre de problemas de lint.
 
----
 
 ##Arquivo: Footer.js
-
 ````
-
 import styles from "./footer.module.css";
 export default function Footer() {
   return (
@@ -427,8 +424,6 @@ export default function Footer() {
     </footer>
   );
 }
-
-
 ````
 
 Explicação:
