@@ -385,9 +385,9 @@ Este arquivo define configurações globais do Next.js.
 A opção reactCompiler: true ativa o novo compilador React para otimizar o desempenho e tempo de build.
 
 Pode ser usado para habilitar funções experimentais e controlar comportamento de build.
+
+
 ---
-
-
 
 ##⚙️ Arquivo: eslint.config.mjs
 ````
