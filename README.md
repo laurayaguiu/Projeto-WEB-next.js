@@ -370,7 +370,8 @@ Serve como “base” para todos os estilos — tudo herda esse comportamento pa
 
 
 ###⚙️ Arquivo: next.config.mjs
-````/** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
+````
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
@@ -386,8 +387,9 @@ A opção reactCompiler: true ativa o novo compilador React para otimizar o dese
 
 Pode ser usado para habilitar funções experimentais e controlar comportamento de build.
 ````
-##$#⚙️ Arquivo: eslint.config.mjs
-````import { defineConfig, globalIgnores } from "eslint/config";
+###⚙️ Arquivo: eslint.config.mjs
+````
+import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 
 const eslintConfig = defineConfig([
