@@ -370,15 +370,16 @@ Serve como “base” para todos os estilos — tudo herda esse comportamento pa
 
 
 ###⚙️ Arquivo: next.config.mjs
-/** @type {import('next').NextConfig} */
 ````
+/** @type {import('next').NextConfig} */
+
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
 };
 
 export default nextConfig;
-
+````
 Explicação:
 
 Este arquivo define configurações globais do Next.js.
@@ -386,7 +387,7 @@ Este arquivo define configurações globais do Next.js.
 A opção reactCompiler: true ativa o novo compilador React para otimizar o desempenho e tempo de build.
 
 Pode ser usado para habilitar funções experimentais e controlar comportamento de build.
-````
+
 ###⚙️ Arquivo: eslint.config.mjs
 ````
 import { defineConfig, globalIgnores } from "eslint/config";
