@@ -2,6 +2,7 @@
 import styles from "./formulario.module.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import CafeImagem from "../components/CafeImagem";
 
 export default function Formulario() {
   const router = useRouter();
@@ -10,8 +11,8 @@ export default function Formulario() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setEnviado(true);
-    e.target.reset(); // limpa o formulário
-    setTimeout(() => setEnviado(false), 4000); // mensagem some depois de 4s
+    e.target.reset();
+    setTimeout(() => setEnviado(false), 5000);
   };
 
   return (
@@ -35,7 +36,13 @@ export default function Formulario() {
         <input type="email" id="email" name="email" required />
 
         <label htmlFor="cep">CEP:</label>
-        <input type="text" id="cep" name="cep" placeholder="00000-000" required />
+        <input
+          type="text"
+          id="cep"
+          name="cep"
+          placeholder="00000-000"
+          required
+        />
 
         <div className={styles.btns}>
           <button
@@ -51,9 +58,10 @@ export default function Formulario() {
         </div>
 
         {enviado && (
-          <p className={styles.mensagemSucesso}>
-            ✅ Formulário enviado com sucesso!
-          </p>
+          <div className={styles.mensagemSucesso}>
+            <p>Em breve entraremos em contato.</p>
+            <CafeImagem />
+          </div>
         )}
       </form>
     </section>
