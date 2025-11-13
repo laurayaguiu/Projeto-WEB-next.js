@@ -416,7 +416,7 @@ body.dark .nav-links a:hover {
   color: #e91e63;
 }
 ```
-#### Arquivo: `Footer.js`
+ #### Arquivo: `Footer.js`
 ```js
  <footer className={styles.footer}>
             <p>&copy; 2025 VELOURS Pâtisserie</p>
@@ -431,7 +431,7 @@ body.dark .nav-links a:hover {
 }
 
 ```
-- Footer padronizado para todas as páginas com apenas um `<p>` relacionado aos direitos autorais. 
+- Footer padronizado para todas as páginas com apenas um `<p>` relacionado aos direitosautorais. 
 
 #### Arquivo: `NossoCarapio.js`
 
@@ -674,6 +674,40 @@ const cardapio = OpcaoCardapio[id?.toLowerCase().trim()];
 - Para cada imagem, cria um bloco <div> com: uma imagem (<Image /> ) e uma legenda (<p>) com o texto abaixo da imagem.
 
 - A prop key={index} é necessária para o React identificar cada item da lista.
+
+
+###Arquivo: app/api/coffee/route.js
+"use client";
+
+export async function GET() {
+  try {
+    const res = await fetch("https://coffee.alexflipnote.dev/random.json", {
+      cache: "no-store", 
+    });
+
+    if (!res.ok) {
+      throw new Error("Falha ao buscar café externo");
+    }
+
+    const data = await res.json();
+
+    return Response.json(data);
+  } catch (error) {
+    console.error("Erro na rota API:", error);
+    return Response.json({ error: "Erro ao buscar café" }, { status: 500 });
+  }
+}
+
+
+Cria uma rota de API (/api/coffee) que retorna uma imagem aleatória de café vinda da API pública https://coffee.alexflipnote.dev/random.json.
+
+Usa fetch() com cache: "no-store" para garantir que sempre traga uma nova imagem, sem cache.
+
+Se a resposta da API não for bem-sucedida (!res.ok), lança um erro tratado pelo catch.
+
+Retorna os dados da imagem em formato JSON, prontos para uso no frontend (por exemplo, para exibir uma imagem de café em um componente).
+
+Em caso de erro, devolve uma resposta JSON com status 500 e uma mensagem de erro genérica.
 
 # 📘 Conclusão
 
