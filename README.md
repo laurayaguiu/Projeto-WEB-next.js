@@ -676,7 +676,7 @@ const cardapio = OpcaoCardapio[id?.toLowerCase().trim()];
 - A prop key={index} é necessária para o React identificar cada item da lista.
 
 
-###Arquivo: app/api/coffee/route.js
+### Arquivo: app/api/coffee/route.js
 ´´´´
 "use client";
 
