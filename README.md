@@ -677,7 +677,7 @@ const cardapio = OpcaoCardapio[id?.toLowerCase().trim()];
 
 
 ### Arquivo: app/api/coffee/route.js
-´´´´
+````
 "use client";
 
 export async function GET() {
@@ -699,7 +699,8 @@ export async function GET() {
   }
 }
 
-´´´´
+````
+
 Cria uma rota de API (/api/coffee) que retorna uma imagem aleatória de café vinda da API pública https://coffee.alexflipnote.dev/random.json.
 
 Usa fetch() com cache: "no-store" para garantir que sempre traga uma nova imagem, sem cache.
