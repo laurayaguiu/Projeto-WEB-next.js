@@ -677,49 +677,80 @@ const cardapio = OpcaoCardapio[id?.toLowerCase().trim()];
 
 
 ### Arquivo: app/api/coffee/route.js
-````
+```js
+export async function GET() 
+```
+- quando alguém acessar /api/café/route.js com método GET, essa função será executada.
+- Recebe requisições GET para uma rota de API.
+
+```js
+const res = await fetch("https://coffee.alexflipnote.dev/random.json", {
+  cache: "no-store",
+});
+```
+- Acessando uma API externa que retorna uma imagem aleatória de café.
+- cache significa não guardar o resultado em cache, sempre buscar um novo café a cada requisição.
+
+```js
+const data = await res.json();
+return Response.json(data);
+```
+- Converte o corpo da resposta em objeto JavaScript.
+- Retornando JSON para o cliente
+
+### Arquivo components/CafeImagens.js
+
+```js
 "use client";
+import { useEffect, useState } from "react";
 
-export async function GET() {
-  try {
-    const res = await fetch("https://coffee.alexflipnote.dev/random.json", {
-      cache: "no-store", 
+export default function CafeImagem() {
+  const [cafe, setCafe] = useState(null);
+  const [erro, setErro] = useState(null);
+
+```
+- Diz que esse arquivo roda no navegador, Por isso é possível usar useState, useEffect
+- "cafe" vai armazenar a URL da imagem que vem da API.
+- "erro" guarda um erro caso algo dê errado na requisição.
+
+```js
+useEffect(() => {
+  fetch("/api/cafe")
+    .then(async (res) => {
+      if (!res.ok) throw new Error("Erro ao buscar café");
+      return res.json();
+    })
+    .then((data) => {
+      if (data && data.file) {
+        setCafe(data.file);
+      } else {
+        throw new Error("Formato de dados inesperado");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      setErro("Falha ao carregar a imagem ☕");
     });
+}, []);
+```
 
-    if (!res.ok) {
-      throw new Error("Falha ao buscar café externo");
-    }
+- Chama API interna
+- Verifica se resposta é ok
+- Converte para JSON e garente que os dados tenham o formato correto
 
-    const data = await res.json();
-
-    return Response.json(data);
-  } catch (error) {
-    console.error("Erro na rota API:", error);
-    return Response.json({ error: "Erro ao buscar café" }, { status: 500 });
-  }
-}
-
-````
-
-Cria uma rota de API (/api/coffee) que retorna uma imagem aleatória de café vinda da API pública https://coffee.alexflipnote.dev/random.json.
-
-Usa fetch() com cache: "no-store" para garantir que sempre traga uma nova imagem, sem cache.
-
-Se a resposta da API não for bem-sucedida (!res.ok), lança um erro tratado pelo catch.
-
-Retorna os dados da imagem em formato JSON, prontos para uso no frontend (por exemplo, para exibir uma imagem de café em um componente).
-
-Em caso de erro, devolve uma resposta JSON com status 500 e uma mensagem de erro genérica.
-
-# 📘 Conclusão
-
-O projeto usa a estrutura padrão do **Next.js** com:
-- `layout.js` → estrutura global do site  
-- `page.js` → conteúdo da página inicial  
-- `page.module.css` → estilos modulares locais  
-- `home.css` e `globals.css` → estilos globais e de seções  
-- `favicon.ico` → ícone do site
-- `formulário.js` → cadastro do cliente
-- `cardapio` → Rota dinâmica
-
-💡 *Com isso, o projeto entrega uma aplicação visualmente agradável, responsiva e pronta para deploy.*
+```js
+return (
+  <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <img
+      src={cafe}
+      alt="Café aleatório"
+      style={{
+        maxWidth: "300px",
+        borderRadius: "12px",
+        boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
+      }}
+    />
+  </div>
+);
+```
+- com tudo dando certo é retornado a imagen!

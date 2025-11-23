@@ -1,4 +1,4 @@
-"use  client"
+
 export async function GET() {
   try {
     const res = await fetch("https://coffee.alexflipnote.dev/random.json", {
@@ -18,4 +18,4 @@ export async function GET() {
   }
 }
 
-//client 
+ 
